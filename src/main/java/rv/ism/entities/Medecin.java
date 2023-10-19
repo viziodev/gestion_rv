@@ -37,7 +37,7 @@ public class Medecin extends Personne{
 
     @Override
     public String toString() {
-        return super.toString()+ " Medecin [specialite=" + specialite + ", rvs=" + rvs + "]";
+        return super.toString()+ " Medecin [specialite=" + specialite +  "]";
     }
 
    

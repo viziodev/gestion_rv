@@ -21,7 +21,6 @@ public abstract class BaseRepositoryImpl<T,Long>  implements BaseRepository<T,Lo
 
     @Override
     public void remove(Long id) {
-        
        em.getTransaction().begin();
            em.remove(findById(id)); 
         em.getTransaction().commit();
@@ -31,6 +30,7 @@ public abstract class BaseRepositoryImpl<T,Long>  implements BaseRepository<T,Lo
 
     @Override
     public T findById(Long id) {
+        System.out.println(id);
         return em.find(type,id);
     }
     

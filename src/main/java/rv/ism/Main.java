@@ -47,8 +47,8 @@ public class Main {
                             System.out.println("Entrer l'ID");
                             Long id=scanner.nextLong();
                             medecin =medecinRepository.findById(id);
-                            System.out.println(medecin);
-                           // medecin.getRvs().forEach(System.out::println);
+                           // System.out.println(medecin);
+                            medecin.getRvs().forEach(System.out::println);
                             break;
                         default:
                             break;
