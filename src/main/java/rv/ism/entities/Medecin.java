@@ -28,12 +28,12 @@ public class Medecin extends Personne{
     private Specialite specialite;
 
        @OneToMany(mappedBy = "medecin")
-   private List <RV>rvs;
+       private List <RV>rvs;
 
-    public Medecin(String nomComplet, Specialite specialite) {
+      public Medecin(String nomComplet, Specialite specialite) {
         super(nomComplet);
         this.specialite = specialite;
-    }
+      }
 
     @Override
     public String toString() {

@@ -1,12 +1,15 @@
 package rv.ism;
 
+import java.util.List;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import rv.ism.entities.Bbw;
 import rv.ism.entities.Medecin;
+import rv.ism.entities.Personne;
 import rv.ism.enums.Specialite;
 import rv.ism.repositories.MedecinRepository;
 import rv.ism.repositories.PatientRepository;
@@ -18,6 +21,35 @@ public class Main {
        EntityManagerFactory emf = Persistence
               .createEntityManagerFactory("RVISM");
         EntityManager em=emf.createEntityManager();
+          //em.getTransaction().begin();
+            // Personne p1= em.find(Personne.class, 1L);
+           // bbw.setImat("000002");
+              //  em.persist(bbw);
+            // Bbw bbw=new Bbw("000003","X4");
+               //bbw.getPersonnes().add(p1);
+               //em.persist(bbw);
+            //em.getTransaction().commit();
+
+           Bbw bbw=em.find(Bbw.class, 2L);
+           System.out.println(bbw.getImat()+" "+bbw.getModel());
+              bbw.getPersonnes().stream().forEach(c->{
+                  System.out.println(c.getNomComplet());
+                 });
+          
+
+          /*  List<Personne> personnes=em.createQuery("select p from Personne p where p.nomComplet like :nom",Personne.class)
+                                    .setParameter("nom","bb%")
+                                    .getResultList();*/ 
+
+            /*   List<Personne> personnes=em.createNamedQuery("findLikeNomComplet",Personne.class)
+                   .setParameter("nom","bb%")
+                  .getResultList();
+                 
+            personnes.stream().forEach(c->{
+                  System.out.println(c.getNomComplet());
+           }); */
+
+
 
         PatientRepository patientRepository=new PatientRepositoryImpl(em);
         MedecinRepository medecinRepository=new MedecinRepositoryImpl(em);
